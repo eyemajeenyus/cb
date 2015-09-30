@@ -22,9 +22,7 @@ make sure AID does not show up on brief when "printed"!
 
 unique identifier for each brief auto increment md5 random
 
-setup steelhouse DB - !Eric with backend!
-
-set up full autocomplete - !Eric with backend!
+grab client list row and dump JSON
 
 ?features revamp - dropdown instead with text box for feature description?
 
