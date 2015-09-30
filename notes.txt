@@ -1,0 +1,99 @@
+Creative Brief Notes
+
+client feedback "area"
+
+|------------------------------------------|
+
+<!-- FLOW -->
+
+index - search, view status, add new
+
+search - edit, change status, preview send
+
+view status - pending, approved, disapproved - edit
+
+add new - fill out, two options - submit, preview send with link generation
+
+|-------------------------------------------|
+
+--> New brief TO DO:
+
+make sure AID does not show up on brief when "printed"!
+
+unique identifier for each brief auto increment md5 random
+
+setup steelhouse DB - !Eric with backend!
+
+set up full autocomplete - !Eric with backend!
+
+?features revamp - dropdown instead with text box for feature description?
+
+tickets for? - db stuff to watson
+
+echo path link for sending email to client
+
+|-------------------------------------------|
+
+--> HELP: <!--
+
+show data prepared to email of most recently inserted file
+
+output based on each channel - set up
+
+not show "id" link to client name, (unique id)  sha1(uniqueid($live, true));
+$url = "http://example.com/activate.php?token=$token";
+"please go to $url to view the brief"
+//retrieve token
+if (isset($_POST["token"]) && preg_match('/^[0-9A-F]{40}$/i', $_POST["token"])) {
+    $token = $_POST["token"];
+}
+else {
+    throw new Exception("Valid token not provided.");
+}
+// verify token
+$query = $db->prepare("SELECT username, tstamp FROM pending_users WHERE token = ?");
+$query->execute(array($token));
+$row = $query->fetch(PDO::FETCH_ASSOC);
+$query->closeCursor();
+if ($row) {
+    extract($row);
+}
+else {
+    throw new Exception("Valid token not provided.");
+}
+
+|-- Problem Areas --|
+
+
+-->
+|------------------------------------------|
+
+
+//create table
+	$sql = "CREATE TABLE mobile (
+		ID int NOT NULL AUTO_INCREMENT,
+		client varchar(255) NOT NULL,
+		campaign varchar(255) NOT NULL,
+		live varchar(255) NOT NULL,
+		assets varchar(255),
+		banners varchar(255),
+		lookFeel varchar(255),
+		messaging varchar(255),
+		cta varchar(255),
+		features varchar(255),
+		objectives varchar(255),
+		segments varchar(255),
+		PRIMARY KEY (ID)
+		)
+
+//create table
+	$sql = "CREATE TABLE FBX (
+		ID int NOT NULL AUTO_INCREMENT,
+		client varchar(255) NOT NULL,
+		campaign varchar(255) NOT NULL,
+		live varchar(255) NOT NULL,
+		headline varchar(255),
+		text varchar(255),
+		imageProvided boolean,
+		PRIMARY KEY (ID)
+		)

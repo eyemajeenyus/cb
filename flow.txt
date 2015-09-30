@@ -1,0 +1,33 @@
+Flow
+-----
+
+index - search, view status, add new
+
+search - edit, change status, preview send
+
+view status - pending, approved, disapproved - edit
+
+add new - fill out, two options - submit, preview send with link generation
+
+|---------------------|
+|- Not Yet Finished --|
+|---------------------|
+
+display finished brief on jpg ready for send
+
+index[send] -> display successfully sent message with content sent
+
+client feedback section
+
+
+what does email contain?
+
+disapprove - text area with client feed back - email
+
+optional send - 
+
+autopopulate email for client to send easily
+associate AM aid's with email - link to db being updated
+possibly have notification setting to alert approve/disapprove
+
+on approval - brief title etc. send email to AM
