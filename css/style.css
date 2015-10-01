@@ -61,7 +61,6 @@ h3 {
 	margin: 0;
 }
 
-
 #wrapper {
 	width: 80%;
 	height: 100%;
@@ -84,29 +83,21 @@ h3 {
 ::-webkit-input-placeholder {
    color: #CCC;
    font-style: italic;
-   
-
 }
 
 :-moz-placeholder { /* Firefox 18- */
    color: #CCC;  
    font-style: italic;
-   
-
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
    color: #CCC;  
    font-style: italic;
-   
-
 }
 
 :-ms-input-placeholder {  
    color: #CCC;  
    font-style: italic;
-   
-
 }
 
 /*header*/
@@ -127,9 +118,6 @@ h3 {
 	padding: 0;
 	display: block;
 }
-
-
-
 
 .heading {
 	width: 100%;
@@ -200,7 +188,6 @@ h3 {
 	padding: 0;
 	float: right;
 	display: inline;
-	
 }
 
 #buttons input[type="button"] {
@@ -473,26 +460,28 @@ textarea {
 	float: none;
 }
 
-#status select {
-	text-align: center;
+select #status {
+	text-align: left;
+	margin: 0 auto;
+	padding-left: 20px;
 }
 
 #status {
 	width: 140px;
 	height: 42px;
 	margin: 0 auto;
-	padding: 0;
+	padding-left: 20px;
     background: #CCC;
     border: 1px solid #999;
     border-radius: 0;
     color: #000;
     font-size: 16px;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    display: inline;
+    display: inline-block;
 }
 
 #status disabled {
@@ -503,7 +492,7 @@ textarea {
 	width: 20%;
 }
 
-#client_id {
+#advertiser_id {
 	width: 20%;
 }
 
@@ -587,6 +576,7 @@ textarea {
 	display: none;
 }
 
+
 /*checkboxes*/
 
 .box input[type="checkbox"] + label {
@@ -663,6 +653,14 @@ label {
 	min-width: 25%;
 }
 
+#yes {
+	top: 20px;
+	margin: 0 auto;
+	padding: 0;
+	width: 80%;
+	text-align: center;
+}
+
 /*content links*/
 
 #add a {
@@ -681,9 +679,6 @@ label {
 }
 
 
-
-
-
 /*tables*/
 
 table {
@@ -700,14 +695,6 @@ td.last {
 	width: 1px;
 	white-space: nowrap;
 }
-
-/*#sorttable_sortfwdind {
-	content: "▾";
-}
-
-#sorttable_sortrevind {
-	content: "▴";
-}*/
 
 .scrollup {
     width: 40px;
@@ -806,17 +793,6 @@ td.last {
 	text-align: center;
 }
 
-
-
-
-
-#yes {
-	top: 20px;
-	margin: 0 auto;
-	padding: 0;
-	width: 80%;
-	text-align: center;
-}
 
 /*media screen*/
 

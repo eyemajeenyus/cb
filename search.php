@@ -20,7 +20,7 @@ $qry = $_POST['searchBox'];
 if($qry == '') {
         echo "<p>There must be something you're looking for?</p><br/><br/>";
     } else {
-        $search = 'SELECT client_id, client, campaign, live, status_id FROM desktop WHERE client_id LIKE :search OR client LIKE :search OR campaign LIKE :search OR status_id LIKE :search LIMIT 20';
+        $search = 'SELECT advertiser_id, advertiser, campaign, live, status_id FROM desktop WHERE advertiser_id LIKE :search OR advertiser LIKE :search OR campaign LIKE :search OR status_id LIKE :search LIMIT 20';
         $stmt = $connect->prepare($search);
         $qry = '%' . $qry . '%';
         $stmt->bindParam(':search', $qry);
@@ -28,7 +28,7 @@ if($qry == '') {
 
         if($stmt->rowCount() > 0) { 
             echo "<div id='data' ><table class='sortable' style='color:#000;text-align:center;margin:0 auto;padding:0;width:auto;'><caption colspan='15' style='font-size: 32px;color:#999;margin: 0 0 30px 0;text-align:center;'>MOST RECENT</caption>";
-            echo "<tr width='auto' style='color:#000;text-align:center;'><th style='text-align:center;'>Client ID</th><th>Client</th><th>Campaign</th><th>Live Date</th><th>Status</th></tr>";
+            echo "<tr width='auto' style='color:#000;text-align:center;'><th style='text-align:center;'>Advertiser ID</th><th>Advertiser</th><th>Campaign</th><th>Live Date</th><th>Status</th></tr>";
 
             class TableRows extends RecursiveIteratorIterator { 
                 function __construct($it) { 
@@ -37,7 +37,7 @@ if($qry == '') {
 
                 function current() {
                     $row = $this->getArrayCopy();
-                    return "<td style='width:150px;height:60px;border:1px solid #000;color:#000;text-align:center;'>" . parent::current(). "<br/><br/><a style=\"text-decoration: none; color:#C00;\" href=\"edit.php?id=" . $row['client_id'] . "\">Edit</a></td>";
+                    return "<td style='width:150px;height:60px;border:1px solid #000;color:#000;text-align:center;'>" . parent::current(). "<br/><br/><a style=\"text-decoration: none; color:#C00;\" href=\"edit.php?id=" . $row['advertiser_id'] . "\">Edit</a> OR <a style=\"text-decoration: none; color:#C00;\" href=\"preview.php?id=" . $row['advertiser_id'] . "\">Preview</a></td>";
                 }
 
                 function beginChildren() { 

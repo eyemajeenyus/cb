@@ -59,19 +59,19 @@
 			<h1 class="heading">OVERVIEW</h1>
 			<div class="container">
 				<div class="titles">
-					<h3 class="title">CLIENT AID</h3>
+					<h3 class="title">ADVERTISER ID</h3>
 				</div>
 				<div class="textbox">
-					<input name="client_id" id="client_id" type="text" placeholder="ex. 0000" required />
+					<input name="advertiser_id" id="advertiser_id" type="text" placeholder="ex. 0000" required />
 				</div>
 			</div>
 			<div class="miniPush"></div>
 			<div class="container">
 				<div class="titles">
-					<h3 class="title">CLIENT</h3>
+					<h3 class="title">ADVERTISER</h3>
 				</div>
 				<div class="textbox">
-					<input name="client" id="client" type="text" placeholder="ex. Fashion House" required autofocus/>
+					<input name="advertiser" id="advertiser" type="text" placeholder="ex. Fashion House" required autofocus/>
 				</div>
 			</div>
 			<div class="miniPush"></div>
@@ -265,7 +265,7 @@
 		</div>
 		<div id="send">
 			<input id="add" type="submit" class="button" name="submit" value="ADD BRIEF" formaction="add.php" />
-			<input id="sending" type="submit" class="button" name="send" value="SEND TO CLIENT PREVIEW" formaction="send.php" />
+			<input id="sending" type="submit" class="button" name="send" value="SEND TO ADVERTISER PREVIEW" formaction="send.php" />
 		</div>
 		<div class="miniPush"></div>
 	</div>

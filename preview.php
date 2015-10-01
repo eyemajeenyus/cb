@@ -1,10 +1,10 @@
 		<?php
 			include 'head.php';
 			include 'dbconnect.php';
-			// $client_id = $_POST['client_id'];
-			$stmt = $connect->query("SELECT client_id, status_id, client, campaign, live, assets, banners, lookfeel, messaging, cta, video, timer, destination, objectives, segments FROM desktop WHERE client_id = '" . $_GET['id'] . "'");
+			// $advertiser_id = $_POST['advertiser_id'];
+			$stmt = $connect->query("SELECT advertiser_id, status_id, advertiser, campaign, live, assets, banners, lookfeel, messaging, cta, video, timer, destination, objectives, segments FROM desktop WHERE advertiser_id = '" . $_GET['id'] . "'");
 			// $stmt = $connect->query("SELECT headline, copy FROM fbx");
-			// $stmt = $connect->prepare("UPDATE desktop SET client_id = '$client_id', status_id = '$status_id', client = '$client', campaign = '$campaign', live = '$live'");
+			// $stmt = $connect->prepare("UPDATE desktop SET advertiser_id = '$advertiser_id', status_id = '$status_id', advertiser = '$advertiser', campaign = '$campaign', live = '$live'");
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			$row = $stmt->fetch();
 				echo '
@@ -13,20 +13,19 @@
 			<h1 class="heading">OVERVIEW</h1>
 			<div class="container">
 				<div class="titles">
-					<h3 class="title">CLIENT AID</h3>
+					<h3 class="title">ADVERTISER ID</h3>
 				</div>
 				<div class="textbox">
-					<input name="client_id" id="client_id" type="text" disabled="disabled" value="' . $row['client_id'] . '" required />
+					<input name="advertiser_id" id="advertiser_id" type="text" disabled="disabled" value="' . $row['advertiser_id'] . '" required />
 				</div>
 			</div>
 			<div class="miniPush"></div>
 			<div class="container">
 				<div class="titles">
-					<h3 class="title">STATUS</h3>
+					<h3 class="title">BRIEF STATUS</h3>
 				</div>
 				<div class="textbox">
 						<select id="status" disabled="disabled" name="status_id" form_id="brief">
-							<option selected="selected" disabled="disabled" value="" ' . ($row['status_id'] == '' ? 'selected="selected"' : '') . '>Brief Status</option>
 							<option style="text-align:center;margin:0 auto;" value="approved" ' . ($row['status_id'] == 'approved' ? 'selected="selected"' : '') . '>APPROVED</option>
 							<option style="text-align:center;margin:0 auto;" value="disapproved" ' . ($row['status_id'] == 'disapproved' ? 'selected="selected"' : '') . '>NOT APPROVED</option>
 							<option style="text-align:center;margin:0 auto;" value="pending" ' . ($row['status_id'] == 'pending' ? 'selected="selected"' : '') . '>PENDING</option>
@@ -36,10 +35,10 @@
 			<div class="miniPush"></div>
 			<div class="container">
 				<div class="titles">
-					<h3 class="title">CLIENT</h3>
+					<h3 class="title">ADVERTISER</h3>
 				</div>
 				<div class="textbox">
-					<input name="client" id="client" type="text" disabled="disabled" value="' . $row['client'] . '" required autofocus/>
+					<input name="advertiser" id="advertiser" type="text" disabled="disabled" value="' . $row['advertiser'] . '" required autofocus/>
 				</div>
 			</div>
 			<div class="miniPush"></div>
@@ -229,8 +228,8 @@
 		</div>
 		</div>
 		<div id="send">
-			<input id="edit" type="submit" class="button" name="submit" value="EDIT BRIEF" formaction="edit.php?id=' . $row['client_id'] . '" />
-			<input id="send" type="submit" class="button" name="submit" value="SEND BRIEF" formaction="send.php?id=' . $row['client_id'] . '" />
+			<input id="edit" type="submit" class="button" name="submit" value="EDIT BRIEF" formaction="edit.php?id=' . $row['advertiser_id'] . '" />
+			<input id="send" type="submit" class="button" name="submit" value="SEND BRIEF" formaction="send.php?id=' . $row['advertiser_id'] . '" />
 		</div>
 		<div class="miniPush"></div>
 	</div>

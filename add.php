@@ -13,8 +13,8 @@ try {
 
     // check for $row if exists, include variable for page inclusion, show page again - require, check for errors in form submission
 
-$client_id = $_POST['client_id'];
-$client = $_POST['client'];
+$advertiser_id = $_POST['advertiser_id'];
+$advertiser = $_POST['advertiser'];
 $campaign = $_POST['campaign'];
 $live = $_POST['live'];
 $assets = $_POST['assets'];
@@ -28,9 +28,9 @@ $destination = $_POST['destination'];
 $objectives = $_POST['objectives'];
 $segments = $_POST['segments'];
 
-$query = "INSERT INTO desktop (client_id, client, campaign, live, assets, banners, lookfeel, messaging, cta, destination, objectives, segments)
-			VALUES ('$client_id', '$client', '$campaign', '$live', '$assets', '$banners', '$lookfeel', '$messaging', '$cta', '$destination', '$objectives', '$segments')
-            ON DUPLICATE KEY UPDATE client = '$client', campaign = '$campaign', live = '$live'";
+$query = "INSERT INTO desktop (advertiser_id, advertiser, campaign, live, assets, banners, lookfeel, messaging, cta, destination, objectives, segments)
+			VALUES ('$advertiser_id', '$advertiser', '$campaign', '$live', '$assets', '$banners', '$lookfeel', '$messaging', '$cta', '$destination', '$objectives', '$segments')
+            ON DUPLICATE KEY UPDATE advertiser = '$advertiser', campaign = '$campaign', live = '$live'";
 $connect->exec($query);
 $last_id = $connect->lastInsertId();
 
@@ -44,7 +44,7 @@ echo '<a href="status.php">View Brief Status</a>';
 echo '</p>';
 
 echo "<div id='data' ><table class='sortable' style='color:#000;text-align:center;margin:0 auto;padding:0;width:auto;'><caption colspan='15' style='font-size: 32px;color:#C00;margin: 0 0 30px 0;text-align:center;'>MOST RECENT BRIEF(S)</caption>";
-echo "<tr width='auto' style='color:#000;text-align:center;'><th style='text-align:center;'>Client ID</th><th>Client</th><th>Campaign</th><th>Live Date</th><th>Status</th></tr>";
+echo "<tr width='auto' style='color:#000;text-align:center;'><th style='text-align:center;'>Advertiser ID</th><th>Advertiser</th><th>Campaign</th><th>Live Date</th><th>Status</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator { 
     function __construct($it) { 
@@ -64,7 +64,7 @@ class TableRows extends RecursiveIteratorIterator {
     } 
 }
 
-$query = $connect->query('SELECT client_id, client, campaign, live, status_id FROM desktop GROUP BY live DESC, client DESC');
+$query = $connect->query('SELECT advertiser_id, advertiser, campaign, live, status_id FROM desktop GROUP BY live DESC, advertiser DESC');
 $query->execute();
 $result = $query->setFetchMode(PDO::FETCH_ASSOC); 
 foreach(new TableRows(new RecursiveArrayIterator($query->fetchAll())) as $k=>$v) { 

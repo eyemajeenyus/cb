@@ -16,9 +16,9 @@
         die('nope!');
     } 
 
-    $client_id = $_POST['client_id'];
+    $advertiser_id = $_POST['advertiser_id'];
     $status_id = $_POST['status_id'];
-    $client = $_POST['client'];
+    $advertiser = $_POST['advertiser'];
     $campaign = $_POST['campaign'];
     $live = $_POST['live'];
     $assets = $_POST['assets'];
@@ -32,9 +32,9 @@
     $objectives = $_POST['objectives'];
     $segments = $_POST['segments'];
 
-    $stmt = $connect->prepare("INSERT INTO desktop (client_id, status_id, client, campaign, live, assets, banners, lookfeel, messaging, cta, video, destination, objectives, segments)
-                VALUES ('$client_id', '$status_id', '$client', '$campaign', '$live', '$assets', '$banners', '$lookfeel', '$messaging', '$cta', '$video', '$destination', '$objectives', '$segments')
-                ON DUPLICATE KEY UPDATE status_id = '$status_id', client = '$client', campaign = '$campaign', live = '$live', assets = '$assets', banners = '$banners', lookfeel = '$lookfeel', messaging = '$messaging', cta = '$cta', video = '$video', destination = '$destination', objectives = '$objectives', segments = '$segments'");
+    $stmt = $connect->prepare("INSERT INTO desktop (advertiser_id, status_id, advertiser, campaign, live, assets, banners, lookfeel, messaging, cta, video, destination, objectives, segments)
+                VALUES ('$advertiser_id', '$status_id', '$advertiser', '$campaign', '$live', '$assets', '$banners', '$lookfeel', '$messaging', '$cta', '$video', '$destination', '$objectives', '$segments')
+                ON DUPLICATE KEY UPDATE status_id = '$status_id', advertiser = '$advertiser', campaign = '$campaign', live = '$live', assets = '$assets', banners = '$banners', lookfeel = '$lookfeel', messaging = '$messaging', cta = '$cta', video = '$video', destination = '$destination', objectives = '$objectives', segments = '$segments'");
     $stmt->execute();
     include 'view.php';
     echo '<div class="miniPush"></div>';

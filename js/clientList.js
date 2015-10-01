@@ -60,7 +60,7 @@ $(function() {
 	      "Onnit Labs 11428",
 	      "Novica 10493"
 	    ];
-	    $( "#client" ).autocomplete({
+	    $( "#advertiser" ).autocomplete({
 	      source: availableTags
 	    });
 	  });
@@ -92,7 +92,7 @@ $(function() {
 	      "11428",
 	      "10493"
 	    ];
-	    $( "#client_id" ).autocomplete({
+	    $( "#advertiser_id" ).autocomplete({
 	      source: availableTags
 	    });
 	  });
